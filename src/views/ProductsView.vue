@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ product.title }}</h5>
-          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text descriptionBox">{{ product.description }}</p>
         </div>
         <div class="card-footer">
           <button type="button" class="btn btn-dark w-100"
@@ -33,6 +33,15 @@
 }
 .btn:hover{
   opacity: 0.75;
+}
+
+.card-text.descriptionBox{
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 </style>
 
