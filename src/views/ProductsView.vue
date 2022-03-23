@@ -3,7 +3,7 @@
   <div class="row row-cols-4 gy-4">
     <div class="col" v-for="product in productsData" :key="product.id">
       <div class="card">
-        <div class="card-img-top ratio ratio-4x3 bg-cover"
+        <div class="card-img-top ratio ratio-1x1 bg-cover"
           :style="`background-image: url('${product.imageUrl}')`">
         </div>
         <div class="card-body">
