@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <router-link class="navbar-brand" to="/">
-        <h1 class="fs-4 mb-0">逼波波</h1>
+        <img :src="imgSrc" class="AlumarsLogo" alt="">
       </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -37,11 +37,15 @@
   </div>
 </template>
 
+<style lang="scss">
+  .AlumarsLogo{ width: 200px;}
+</style>
 <script>
 export default {
   data() {
     return {
       isLogin: false,
+      imgSrc: 'https://storage.googleapis.com/vue-course-api.appspot.com/beanhuang/1648105113091.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=mVLZzu1AaJX2pEKbx59Nyutx52Nm0NelVji4nj5eXt0R99P%2B%2FJgN77w0rJLY5j71JIgv3MkYb7NaeZ%2B0JnFACDZGSAZx36TnKmxECDFgphia7bc1WUnX3t4blRYEvOWysOTPPc78ZM0ZFVVqw8NkfgnDIP%2FST6inH2HvGFolZ%2B34bxNJNTo0mBuedUhocCkxp5ls5V2m407aGNlbT1G2ngBcGdelNNx91ZWuDmyAa5ZYvQhyTonBSNWJ75Z8B8c02%2Fpeu9z%2BEAq3wdxqCqio1oIVhnGMCmwqLkAlwrDrE2oiQ5kQGpE6%2F9meRd8H2nJv2HrtQTj8sGKCTMV0oLfiyA%3D%3D',
     };
   },
   methods: {

@@ -1,7 +1,7 @@
 <template>
   <div
     class="modal fade"
-    id="productModal"
+    id="orderModal"
     tabindex="-1"
     role="dialog"
     aria-labelledby="exampleModalLabel"
@@ -56,13 +56,13 @@
                   </tr>
                   <tr>
                     <th>下單時間</th>
-                    <td>{{ $filters.date(tempOrder.create_at) }}</td>
+                    <td>{{ new Date(tempOrder.create_at) }}</td>
                   </tr>
                   <tr>
                     <th>付款時間</th>
                     <td>
                       <span v-if="tempOrder.paid_date">
-                        {{ tempOrder.paid_date }}
+                        {{ new Date(tempOrder.paid_date) }}
                       </span>
                       <span v-else>時間不正確</span>
                     </td>
@@ -94,7 +94,7 @@
                     </th>
                     <td>{{ item.qty }} / {{ item.product.unit }}</td>
                     <td class="text-end">
-                      {{ $filters.currency(item.final_total) }}
+                      {{ item.final_total }}
                     </td>
                   </tr>
                 </tbody>
@@ -121,7 +121,7 @@
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             取消
           </button>
-          <button type="button" class="btn btn-primary" @click="$emit('update-paid', tempOrder)">
+          <button type="button" class="btn btn-primary" @click="updatePaid(tempOrder)">
             修改付款狀態
           </button>
         </div>
@@ -130,7 +130,7 @@
   </div>
 </template>
 <script>
-import modalMixin from '@/mixins/modalMixin';
+import Modal from 'bootstrap/js/dist/modal';
 
 export default {
   props: {
@@ -144,18 +144,46 @@ export default {
   data() {
     return {
       status: {},
-      modal: '',
       tempOrder: {},
+      orderModal: {},
       isPaid: false,
     };
   },
-  emits: ['update-paid'],
-  mixins: [modalMixin],
-  inject: ['emitter'],
   watch: {
     order() {
       this.tempOrder = this.order;
     },
+  },
+  methods: {
+    updatePaid(order) {
+      const paid = {
+        is_paid: order.is_paid,
+      };
+      this.$http
+        .put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/order/${order.id}`, {
+          data: paid,
+        })
+        .then((res) => {
+          this.closeModal();
+          console.log(res);
+          this.$emit('get-orders');
+        })
+        .catch((error) => {
+          console.dir(error);
+        });
+    },
+    openModal() {
+      this.orderModal.show();
+    },
+    closeModal() {
+      this.orderModal.hide();
+    },
+  },
+  mounted() {
+    this.orderModal = new Modal(this.$refs.modal, {
+      keyboard: false,
+      backdrop: 'static',
+    });
   },
 };
 </script>

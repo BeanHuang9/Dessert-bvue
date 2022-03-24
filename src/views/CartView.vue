@@ -1,4 +1,5 @@
 <template>
+<div class="container mt-5 my-5">
   <h2 class="fw-bold mt-5">我的購物車</h2>
   <div class="text-end">
     <button class="btn btn-outline-danger" type="button"
@@ -11,7 +12,7 @@
       清空購物車
     </button>
   </div>
-  <table class="table align-middle">
+  <table class="table align-middle mt-3">
     <thead>
       <tr>
         <th width="100"></th>
@@ -66,8 +67,9 @@
   </table>
   <div class="text-end">
     <router-link class="btn btn-danger fs-5 px-5"
-      to="/order">結帳去</router-link>
+      to="/order">結帳</router-link>
   </div>
+</div>
 </template>
 
 <script>
