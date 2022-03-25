@@ -70,17 +70,9 @@
       <div class="p-2 bd-highlight"><img :src="banner2" class="d-block w-100" alt="" /></div>
     </div>
   </div>
-  <div class="parallax">
-    <div class="caption">
-      <span class="captionCont">滑板文化從1950年代至2020年，發展至今日已是價值數十億美元的產業，其透過一種既是藝術也是運動的形式，
-        影響著全球數以百萬人的生計。就其自身歷史，滑板也擁有展現文化脈絡的博物館、授予人們榮耀的名人堂、規劃有據可查的歷史紀事，鞏固這自由文化核心的特別之處。
-      </span>
-    </div>
-  </div>
-
-  <div class="container mt-5">
+  <div class="container mt-5 my-5">
     <div class="row row-cols-4 gy-4">
-      <div class="col" v-for="product in productsData" :key="product.id">
+      <div class="col-6 col-lg-3" v-for="product in productsData" :key="product.id">
         <div class="card">
           <div class="card-img-top ratio ratio-1x1 bg-cover"
             :style="`background-image: url('${product.imageUrl}')`">
@@ -97,10 +89,17 @@
       </div>
     </div>
   </div>
+  <div class="parallax">
+    <div class="caption">
+      <span class="captionCont">滑板文化從1950年代至2020年，發展至今日已是價值數十億美元的產業，其透過一種既是藝術也是運動的形式，
+        影響著全球數以百萬人的生計。就其自身歷史，滑板也擁有展現文化脈絡的博物館、授予人們榮耀的名人堂、規劃有據可查的歷史紀事，鞏固這自由文化核心的特別之處。
+      </span>
+    </div>
+  </div>
   <productModal ref="productModalOuter" :product="product"></productModal>
 
   <footer>
-    <div id="copyrights" class="text-center">
+    <div id="copyrights" class="text-center mt-3">
       <p>©{{ year }}{{ copyright }} 建議瀏覽器 chrome / IE 11.0 以上</p>
     </div>
   </footer>
@@ -131,27 +130,20 @@
   -webkit-box-orient: vertical;
 }
 .icon_box .adicon {
-  width: 130px;
-  color: #fff;
-  padding: 10px;
-  margin: 0px auto;
+  width: 130px; color: #fff; padding: 10px; margin: 0px auto;
 }
 .parallax {
-  background-image: url('https://images.unsplash.com/photo-1617034840325-b10d81550042?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1617034840325-b10d81550042?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); min-height: 500px; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;
 }
 .caption {
-  position: absolute; left: 15%; top: 50%; width: 75%; text-align: justify; color: #000;
+  position: absolute; left: 15%; top: 40%; width: 75%; text-align: justify; color: #000;
   background-color: rgb(100 100 100 / 62%);
+
+  & span.captionCont { color: #fff; padding: 18px; font-size: 22px; letter-spacing: 4px;
+  line-height: 2.5rem; }
+
 }
-.caption span.captionCont {
-  color: #fff; padding: 18px; font-size: 22px; letter-spacing: 4px; line-height: 2.5rem;
-}
+
 </style>
 
 <script>
@@ -178,7 +170,14 @@ export default {
     getProducts() {
       this.$http.get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`)
         .then((res) => {
-          this.productsData = res.data.products;
+          // this.productsData = res.data.products.filter((item, index) => index < 4);
+          // console.log(res.data.products);
+          const tempArr = res.data.products;
+          for (let i = 0; i < 4; i += 1) {
+            const index = Math.floor(Math.random() * tempArr.length);
+            this.productsData.push(tempArr[index]);
+            tempArr.splice(index, 1);
+          }
         }).catch((err) => {
           console.dir(err);
         });

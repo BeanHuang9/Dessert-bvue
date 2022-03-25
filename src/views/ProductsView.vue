@@ -2,7 +2,7 @@
 <div class="container">
   <h2>產品列表</h2>
   <div class="row row-cols-4 gy-4">
-    <div class="col" v-for="product in productsData" :key="product.id">
+    <div class="col-6 col-lg-3" v-for="product in productsData" :key="product.id">
       <div class="card">
         <div class="card-img-top ratio ratio-1x1 bg-cover"
           :style="`background-image: url('${product.imageUrl}')`">

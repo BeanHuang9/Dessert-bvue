@@ -34,9 +34,6 @@
       </Form>
     </div>
   </div>
-  <p class="py-5 text-center text-muted">
-    &copy; 2021~∞ - 六角學院
-  </p>
 </template>
 
 <style>
