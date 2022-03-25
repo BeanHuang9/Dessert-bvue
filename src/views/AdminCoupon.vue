@@ -37,7 +37,8 @@
             <button
               type="button"
               class="btn btn-outline-danger btn-sm"
-              @click="openDelCouponModal(item)">
+              @click="openDelCouponModal(item)"
+            >
               刪除
             </button>
           </div>
@@ -58,7 +59,6 @@
     @emitPages="getCoupon"
   ></PaginationView>
   <FooterView></FooterView>
-
 </template>
 
 <script>
