@@ -98,13 +98,7 @@
   </div>
   <productModal ref="productModalOuter" :product="product"></productModal>
 
-  <footer>
-    <div id="copyrights" class="text-center mt-3">
-      <p>©{{ year }}{{ copyright }} 建議瀏覽器 chrome / IE 11.0 以上</p>
-    </div>
-  </footer>
-  <productModal ref="productModalOuter" :product="product"></productModal>
-
+  <FooterView></FooterView>
 </template>
 
 <style lang="scss">
@@ -148,6 +142,7 @@
 
 <script>
 import productModal from '@/components/CustomProductModal.vue';
+import FooterView from '@/components/FooterView.vue';
 
 export default {
   data() {
@@ -189,6 +184,7 @@ export default {
   },
   components: {
     productModal,
+    FooterView,
   },
   mounted() {
     this.getProducts();

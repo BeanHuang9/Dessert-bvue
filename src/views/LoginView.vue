@@ -34,6 +34,7 @@
       </Form>
     </div>
   </div>
+  <FooterView></FooterView>
 </template>
 
 <style>
@@ -43,6 +44,8 @@
 </style>
 
 <script>
+import FooterView from '@/components/FooterView.vue';
+
 export default {
   data() {
     return {
@@ -72,6 +75,9 @@ export default {
           this.isLoading = false;
         });
     },
+  },
+  components: {
+    FooterView,
   },
 };
 </script>

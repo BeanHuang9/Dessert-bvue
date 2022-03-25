@@ -70,11 +70,14 @@
   <OrderModal ref="orderModal" :order="tempOrder" v-on:get-orders="getOrders"></OrderModal>
   <DelOrderModal ref="delOrderModal" :order="tempOrder" v-on:get-orders="getOrders"></DelOrderModal>
   <!-- Modal -->
+  <FooterView></FooterView>
+
 </template>
 <script>
 import OrderModal from '@/components/AdminOrderModal.vue';
 import DelOrderModal from '@/components/DelOrderModal.vue';
 import Pagination from '@/components/Pagination.vue';
+import FooterView from '@/components/FooterView.vue';
 
 export default {
   data() {
@@ -88,6 +91,7 @@ export default {
     OrderModal,
     DelOrderModal,
     Pagination,
+    FooterView,
   },
   methods: {
     getOrders(page = 1) {

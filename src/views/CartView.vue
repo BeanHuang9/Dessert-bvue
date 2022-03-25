@@ -70,9 +70,13 @@
       to="/order">結帳</router-link>
   </div>
 </div>
+<FooterView></FooterView>
+
 </template>
 
 <script>
+import FooterView from '@/components/FooterView.vue';
+
 export default {
   data() {
     return {
@@ -132,6 +136,9 @@ export default {
           console.dir(err);
         });
     },
+  },
+  components: {
+    FooterView,
   },
   created() {
     this.getCart();

@@ -56,9 +56,13 @@
       </div>
     </Form>
   </div>
+  <FooterView></FooterView>
+
 </template>
 
 <script>
+import FooterView from '@/components/FooterView.vue';
+
 export default {
   data() {
     return {
@@ -99,6 +103,7 @@ export default {
     },
   },
   components: {
+    FooterView,
   },
   created() {
     this.getCart();

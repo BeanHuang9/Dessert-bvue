@@ -1,7 +1,7 @@
 <template>
-<div class="container">
+<div class="container mt-5 my-5">
   <h2>產品列表</h2>
-  <div class="row row-cols-4 gy-4">
+  <div class="row row-cols-4 gy-4 mt-3">
     <div class="col-6 col-lg-3" v-for="product in productsData" :key="product.id">
       <div class="card">
         <div class="card-img-top ratio ratio-1x1 bg-cover"
@@ -18,9 +18,10 @@
       </div>
     </div>
   </div>
-
   <productModal ref="productModalOuter" :product="product"></productModal>
 </div>
+<FooterView></FooterView>
+
 </template>
 
 <style lang="scss">
@@ -49,6 +50,7 @@
 
 <script>
 import productModal from '@/components/CustomProductModal.vue';
+import FooterView from '@/components/FooterView.vue';
 
 export default {
   data() {
@@ -73,6 +75,7 @@ export default {
   },
   components: {
     productModal,
+    FooterView,
   },
   created() {
     this.getProducts();

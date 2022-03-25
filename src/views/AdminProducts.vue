@@ -63,12 +63,14 @@
   />
   <!-- DelModal -->
   <DelModal :item="tempProduct" ref="delModal" @del-item="delProduct"></DelModal>
+  <FooterView></FooterView>
 
 </template>
 <script>
 import DelModal from '@/components/DelModal.vue';
 import Pagination from '@/components/Pagination.vue';
 import ProductModal from '@/components/ProductModal.vue';
+import FooterView from '@/components/FooterView.vue';
 
 export default {
   data() {
@@ -92,6 +94,7 @@ export default {
     ProductModal,
     DelModal,
     Pagination,
+    FooterView,
   },
   inject: ['emitter'],
   methods: {
