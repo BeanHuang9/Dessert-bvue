@@ -32,7 +32,7 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <img class="img-fluid" :src="product.imageUrl" alt="產品圖片">
+          <img class="img-fluid" :src="product.imageUrl" alt="產品圖片" />
         </div>
         <div class="col-sm-6">
           <h2>{{ product.title }}</h2>
@@ -46,15 +46,19 @@
           </template>
           <div>
             <div class="input-group">
-              <input type="number" class="form-control" min="1" max="10" v-model.number="qty">
+              <input type="number" class="form-control" min="1" max="10" v-model.number="qty" />
               <button
                 type="button"
                 class="btn btn-primary"
                 :disabled="isLoading"
-                @click="addCart(product.id)">
-                <span class="spinner-border spinner-border-sm"
-                  role="status" aria-hidden="true"
-                  v-if="isLoading"></span>
+                @click="addCart(product.id)"
+              >
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                  v-if="isLoading"
+                ></span>
                 加入購物車
               </button>
             </div>
@@ -62,7 +66,6 @@
           <div class="mt-3">
             <button type="button" class="btn btn-secondary" @click="$router.back">返回</button>
           </div>
-
         </div>
         <!-- col-sm-6 end -->
       </div>
@@ -91,10 +94,12 @@ export default {
         });
     },
     getCart() {
-      this.$http.get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
+      this.$http
+        .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
           this.cartData = res.data.data;
-        }).catch((err) => {
+        })
+        .catch((err) => {
           console.dir(err);
         });
     },
@@ -106,19 +111,15 @@ export default {
         },
       };
 
-      const product = this.cartData.carts.find((item) => item.product_id === id);
-      if (product) {
-        cart.data.qty += product.qty;
-      }
-
       this.isLoading = true;
-      this.$http.post(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`, cart)
+      this.$http
+        .post(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`, cart)
         .then(() => {
-          this.hideModal();
-        }).catch((err) => {
-          console.dir(err);
-        }).then(() => {
           this.isLoading = false;
+          // alert('已成功')
+        })
+        .catch((err) => {
+          console.dir(err);
         });
     },
   },
