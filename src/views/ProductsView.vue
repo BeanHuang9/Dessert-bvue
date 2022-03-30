@@ -69,6 +69,12 @@ export default {
       this.$http.get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`)
         .then((res) => {
           this.productsData = res.data.products;
+          // const tempArr = res.data.products;
+          // for (let i = 0; i < 12; i += 1) {
+          //   const index = Math.floor(Math.random() * tempArr.length);
+          //   this.productsData.push(tempArr[index]);
+          //   tempArr.splice(index, 1);
+          // }
         }).catch((err) => {
           console.dir(err);
         });
