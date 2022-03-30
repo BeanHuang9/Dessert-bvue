@@ -40,6 +40,9 @@
                   </button>
                 </div>
               </div>
+              <div>
+                <button type="button" class="btn btn-secondary" @click="$router.back">返回</button>
+              </div>
             </div>
             <!-- col-sm-6 end -->
           </div>

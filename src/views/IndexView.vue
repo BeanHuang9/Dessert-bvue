@@ -21,15 +21,13 @@
       <div class="carousel-item active">
         <img :src="banner1" class="d-block w-100" alt="" />
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h3>Skateboarding isn’t a sport, it’s a lifestyle.</h3>
         </div>
       </div>
       <div class="carousel-item">
         <img :src="banner2" class="d-block w-100" alt="" />
         <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h3>Enjoy Skateboarding. Break all rules.</h3>
         </div>
       </div>
     </div>
@@ -66,8 +64,18 @@
   </div>
   <div class="container py-3">
     <div class="d-flex bd-highlight">
-      <div class="p-2 bd-highlight"><img :src="banner1" class="d-block w-100" alt="" /></div>
-      <div class="p-2 bd-highlight"><img :src="banner2" class="d-block w-100" alt="" /></div>
+      <div class="p-2 bd-highlight adimgBox">
+        <img :src="ad1" class="d-block w-100" alt="" />
+        <div class="btncover">
+          <a href="#/products" class="btn btn-outline-secondary">滑板推薦</a>
+        </div>
+      </div>
+      <div class="p-2 bd-highlight adimgBox">
+        <img :src="ad2" class="d-block w-100" alt="" />
+        <div class="btncover">
+          <a href="#/qa" class="btn btn-outline-secondary">常見問題</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="container mt-5 my-5">
@@ -102,6 +110,26 @@
 </template>
 
 <style lang="scss">
+.carousel-caption h3{     font-size: 2rem;
+    letter-spacing: 1px;
+    font-weight: 400;}
+.adimgBox {position: relative; width: 100%; height: 100%;}
+.adimgBox .adimgBox .btncover {
+  background: rgba(57, 63, 88, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all .2s linear;
+  width: 100%;
+  opacity: 0;
+}
+.adimgBox .btncover .btn{    background: none;
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;font-size: 24px; border: 1px solid #fff;
+}
 .card-img-top{
   background-repeat: no-repeat;
   background-position: center center;
@@ -155,6 +183,10 @@ export default {
         'https://storage.googleapis.com/vue-course-api.appspot.com/beanhuang/1648106563073.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DdJ3qHA9IRdpARt0%2B%2FGDtxMkWXNohK8TbMF0uf9eXjdQM%2BDhusqjKppss27zuCZTFt7cTTgo991YDqc%2BKwX%2F9zDnDTn5GtPds%2F63Zm8dntzt0Hn7U7UatBSYOIXsUA%2F%2BCx55Cssmh9pmVNPNLW2LIgoi9Gcthni%2FQjZ1IjsI3PnkOD3irp5XvAP%2BeA8OGqfFdwnHxRnDLUPQeqJ9rKXCJ4KCyX7PzN%2BHAMAeA2DTNVa6yGx8mimB%2F9%2BRoSXabfFnGtP503y2mq3%2BiVeqDrrFa%2BzT0ET7fjBTaGybbFmjhUeOwOmC%2F2Z6S%2BxQbWl2vCPLTphuC7qQ4b%2BkSQ5ihXjuEg%3D%3D',
       banner2:
         'https://storage.googleapis.com/vue-course-api.appspot.com/beanhuang/1648106587135.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=EbHvCE5OkY7CZ3BQYhJ%2BkWntVSoPXrFyYAtJ2%2Brl0FqFYbXJFXJOOlS5aUbg1RAOAin6adXV06V9IoI14J8cMG5i4PC%2FpU3AK%2F3je0N%2BE51uewTRqnxBtgASTYQtmR8Y3qc6Dm1KoFjJEl3pb4icdOTLX%2F3xs5zbuUYMsgpGx28%2Fh2EbtPT8wrSIQGXZLkVSpDtkEGKCOWsDqZdbllZ90rpbTTVGIo8O9kTBesQwhOMDqt8Ls7224XrfZvVMfuKX6W%2FmpK%2FPyZ9HBs%2FXzx%2Bnw%2FC1gaEvQOilJWzfMb2Jf1QuhbBtycP7VWWn3a9b5to5c1PidAUG7FXsTAgLXRICeg%3D%3D',
+      ad1:
+        'https://storage.googleapis.com/vue-course-api.appspot.com/beanhuang/1648641334962.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=SUUIeFtvNTC4nLkDO7tR0h4NP596TrqCh52nUJo%2FZaP52A%2BW40K%2FJmXyLC60xdCGLBs7FnjbEhTGaC%2FArH4gTsoEuTw848jq5r%2FKr8CPIzxxoz1DVsrqmAY2ON1cTrjTkmWJY2E1fe8FGfnC12NCNju27XSq7EzLBcK%2FGUAqv4XrxCqKRMbqjLQz2Cvg%2FWbYxAH%2BBAPbpo9XO3qsvyLTDrKvyBhjmYA6F9Z8XjaKb0X0KC1PBbQr8A0rNY6oIzbsTZwU9Zs07fnOh5r6XUPprsAM5WJQ7kLTCKeR8frjJTO7%2BrSUIPquGHqlIRumNdKVYCyQyo5HgIsq2UqDfuRN3A%3D%3D',
+      ad2:
+        'https://storage.googleapis.com/vue-course-api.appspot.com/beanhuang/1648641362810.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OkonjynYtrziXltoNYJTEtWlpV%2FfExaLYgqcTIpq4bJRGUMUY8QckQqJlqSNMe8JZLcOPEe%2B%2FyfhPN7wE3byLZzed9pI39rZG7VVJ9fmJYNlDFHJA3BCCks%2BPXjq1x8N5l83ALsZ5tUE5JBQHatxwfpMYFG3luEPkKAPx%2BxV7i0UsZ9r2liwCKuwrAPHGIvIBBmv%2B%2FbyiLQ8cPIwwdPXUakdP5VPE02H5GEwXqh2%2B3jakUVPJol%2B0agjqwboNeIviXUF7ArgONxAfrBSmNLyIZfc2PC3Tvmz5ekE%2B4SZHKm4oBlpKTU1CzbON%2BFOgr%2FVjecPC9sAQkrTdyQ6De33VA%3D%3D',
       adicon1:
         'https://storage.googleapis.com/vue-course-api.appspot.com/beanhuang/1648114943714.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=L3YQCgcWdZUF2O8XQNg7boAtbQA6eccewqxg5E6dn4hOqR0%2B68DMQa68%2B4t1jvXeF4s3PI585KOl422cEJIm1o8seVLUyU4FOiiYqUb4rivHiKJbgD5n1Aurqsi7w6UDnWN7zRHzU92KTVB83XHHlENdjjlYRqRBRyZpLfKEwa4gh1RAAVcrt%2BgH21UHXNSj1mZ1YXbUeSNehueJNKmoqYtPitMYmZHsZ0HobtUGlmAMigOgce21t0NDrXGdHlCizl%2B%2BYm51frpyIsEHSZ1vnmxaxmcffROJ2dxVANkcje9FDEoBweAAyRjR1MOtEsxE8%2FPumZOl1Ir0W8jpsJuEvA%3D%3D',
       adicon2:

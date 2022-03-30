@@ -12,8 +12,12 @@
           <p class="card-text descriptionBox">{{ product.description }}</p>
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-dark w-100"
-            @click="getModalProduct(product)">查看更多</button>
+          <!-- <button type="button" class="btn btn-dark w-100"
+            @click="getModalProduct(product)">查看更多</button> -->
+            <router-link :to="`/product/${product.id}`" class="btn btn-primary">
+              查看更多
+            </router-link>
+
         </div>
       </div>
     </div>
