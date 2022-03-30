@@ -155,14 +155,14 @@
   width: 130px; color: #fff; padding: 10px; margin: 0px auto;
 }
 .parallax {
-  background-image: url('https://images.unsplash.com/photo-1617034840325-b10d81550042?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); min-height: 500px; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;
+  background-image: url('https://images.unsplash.com/photo-1573054022697-3af201441528?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDIxfHxza2F0ZWJvYXJkfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60'); min-height: 500px; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;
 }
 .caption {
   position: absolute; left: 15%; top: 40%; width: 75%; text-align: justify; color: #000;
-  background-color: rgb(100 100 100 / 62%);
+  background-color: rgb(100 100 100 / 32%);
 
-  & span.captionCont { color: #fff; padding: 18px; font-size: 22px; letter-spacing: 4px;
-  line-height: 2.5rem; }
+  & span.captionCont { color: #fff; padding: 18px; font-size: 18px; letter-spacing: 3px;
+  line-height: 2rem; }
 
 }
 
