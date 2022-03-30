@@ -42,7 +42,7 @@
           <div class="h5" v-if="!product.origin_price">{{ product.price }} 元</div>
           <template v-else>
             <del class="h6">原價 {{ product.origin_price }} 元</del>
-            <div class="h5">現在只要 {{ product.price }} 元</div>
+            <div class="h5" style="color: #ff3f3f;">現在只要 {{ product.price }} 元</div>
           </template>
           <div>
             <div class="input-group">
@@ -117,6 +117,9 @@ export default {
         .then(() => {
           this.isLoading = false;
           // alert('已成功')
+          /* eslint-disable */
+          alert('已成功');
+          /* eslint-enable */
         })
         .catch((err) => {
           console.dir(err);

@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-center">結帳</h2>
+  <h2 class="text-center mt-5">結帳</h2>
   <div class="my-5 row justify-content-center">
     <Form ref="form" class="col-md-6" v-slot="{ errors }" @submit="createOrder">
       <div class="mb-3">

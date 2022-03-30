@@ -90,7 +90,7 @@
             <p class="card-text descriptionBox">{{ product.description }}</p>
           </div>
           <div class="card-footer">
-            <button type="button" class="btn btn-dark w-100"
+            <button type="button" class="btn btn-secondary w-100"
               @click="getModalProduct(product)">查看更多</button>
           </div>
         </div>

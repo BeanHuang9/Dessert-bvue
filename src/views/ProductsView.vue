@@ -14,7 +14,7 @@
         <div class="card-footer">
           <!-- <button type="button" class="btn btn-dark w-100"
             @click="getModalProduct(product)">查看更多</button> -->
-            <router-link :to="`/product/${product.id}`" class="btn btn-primary">
+            <router-link :to="`/product/${product.id}`" class="btn btn-secondary btnfull">
               查看更多
             </router-link>
 
@@ -38,6 +38,7 @@
   background: #fff;
   border: none;
 }
+.btn.btnfull{ width: 100%;}
 .btn:hover{
   opacity: 0.75;
 }

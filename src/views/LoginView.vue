@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-content-center">
     <div class="footer-bottom col-md-6 mb-auto">
-      <h2 class="text-center mb-4">登入</h2>
+      <h2 class="text-center mt-5 mb-4">登入</h2>
       <Form ref="form" v-slot="{ errors }" @submit="login">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
