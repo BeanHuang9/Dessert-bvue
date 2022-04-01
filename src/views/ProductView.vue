@@ -37,11 +37,11 @@
         <div class="col-sm-6">
           <h2>{{ product.title }}</h2>
           <!-- <span class="badge bg-primary rounded-pill my-2">{{ product.category }}</span> -->
-          <p>{{ product.description }}</p>
+          <p class="text-muted">{{ product.description }}</p>
           <div class="h5" v-if="!product.origin_price">{{ product.price }} 元</div>
           <template v-else>
-            <div class="h5" style="color: #ff3f3f;">特價 {{ product.price }} 元</div>
-            <del class="h6">原價 {{ product.origin_price }} 元</del>
+            <div class="h5" style="color: #ff3f3f;">NT$ {{ product.price }} 元</div>
+            <del class="h6">NT$ {{ product.origin_price }} 元</del>
           </template>
           <p class="mb-8 mt-3">
             <!-- <span class="d-block text-medium mb-2">商品資訊</span> -->
@@ -53,7 +53,8 @@
               <input type="number" class="form-control" min="1" max="10" v-model.number="qty" />
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-dark
+"
                 :disabled="isLoading"
                 @click="addCart(product.id)"
               >
@@ -94,6 +95,9 @@
 
 </template>
 
+<style>
+.btn:hover{ opacity: .8;}
+</style>
 <script>
 import FooterView from '@/components/FooterView.vue';
 

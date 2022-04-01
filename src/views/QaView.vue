@@ -189,6 +189,10 @@
 
 </template>
 
+<style>
+.accordion-button:not(.collapsed) { color: #6c757d; background-color: #f8f9fa; box-shadow: inset 0
+-1px 0 rgb(0 0 0 / 13%); }
+</style>
 <script>
 import FooterView from '@/components/FooterView.vue';
 

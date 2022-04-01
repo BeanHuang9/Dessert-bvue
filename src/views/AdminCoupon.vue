@@ -2,7 +2,7 @@
   <div>
     <Loading :active="isLoading" :z-index="1060"></Loading>
     <div class="text-end mt-4">
-      <button class="btn btn-primary" type="button" @click="openCouponModal(true)">
+      <button class="btn btn-secondary" type="button" @click="openCouponModal(true)">
         建立新的優惠券
       </button>
     </div>

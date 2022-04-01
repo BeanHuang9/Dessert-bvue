@@ -10,7 +10,7 @@
   >
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content border-0">
-        <div class="modal-header bg-dark text-white">
+        <div class="modal-header bg-secondary text-white">
           <h5 class="modal-title" id="exampleModalLabel">
             <span v-if="isNew">新增產品</span>
             <span v-else>編輯產品</span>
@@ -187,7 +187,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-warning"
             @click="$emit('update-product', tempProduct)"
           >
             確認

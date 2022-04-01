@@ -10,7 +10,7 @@
   >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-secondary text-white">
           <h5 class="modal-title" id="exampleModalLabel">
             <span v-if="isNew">新增優惠卷</span>
             <span v-else>編輯優惠卷</span>
@@ -74,7 +74,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" @click="$emit('update-coupon', tempCoupon)">
+          <button type="button" class="btn btn-warning" @click="$emit('update-coupon', tempCoupon)">
             {{ isNew ? '新增優惠卷' : '更新優惠券' }}
           </button>
         </div>

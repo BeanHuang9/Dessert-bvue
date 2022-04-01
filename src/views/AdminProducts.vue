@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-end mt-4">
-      <button class="btn btn-primary" type="button" @click="openModal(true)">
+      <button class="btn btn-secondary" type="button" @click="openModal(true)">
         建立新的產品
       </button>
     </div>

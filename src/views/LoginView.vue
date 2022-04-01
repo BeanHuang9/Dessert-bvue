@@ -26,7 +26,7 @@
         </div>
 
         <span class="text-danger mb-4" v-if="isErr">Email 或是 密碼 不正確</span>
-        <button type="submit" class="btn btn-primary w-100">
+        <button type="submit" class="btn btn-dark w-100">
           <span class="spinner-border spinner-border-sm"
             role="status"  aria-hidden="true" v-if="isLoading"></span>
           登入
