@@ -63,7 +63,7 @@
     </div>
   </div>
   <div class="container py-3">
-    <div class="d-flex bd-highlight">
+    <div class="d-lg-flex d-sm-block bd-highlight">
       <div class="p-2 bd-highlight adimgBox">
         <img :src="ad1" class="d-block w-100" alt="" />
         <div class="btncover">
@@ -163,6 +163,11 @@
 
   & span.captionCont { color: #fff; padding: 18px; font-size: 18px; letter-spacing: 3px;
   line-height: 2rem; }
+
+}
+
+@media (max-width: 767px){
+  .caption {top: 20%; }
 
 }
 

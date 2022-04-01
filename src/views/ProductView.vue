@@ -36,14 +36,18 @@
         </div>
         <div class="col-sm-6">
           <h2>{{ product.title }}</h2>
-          <span class="badge bg-primary rounded-pill">{{ product.category }}</span>
-          <p>商品描述：{{ product.description }}</p>
-          <p>商品內容：{{ product.content }}</p>
+          <!-- <span class="badge bg-primary rounded-pill my-2">{{ product.category }}</span> -->
+          <p>{{ product.description }}</p>
           <div class="h5" v-if="!product.origin_price">{{ product.price }} 元</div>
           <template v-else>
+            <div class="h5" style="color: #ff3f3f;">特價 {{ product.price }} 元</div>
             <del class="h6">原價 {{ product.origin_price }} 元</del>
-            <div class="h5" style="color: #ff3f3f;">現在只要 {{ product.price }} 元</div>
           </template>
+          <p class="mb-8 mt-3">
+            <!-- <span class="d-block text-medium mb-2">商品資訊</span> -->
+            <span class="d-block mb-1">規格：{{ product.category }}</span>
+            <span class="d-block mb-1">單位：{{ product.unit }}</span>
+          </p>
           <div>
             <div class="input-group">
               <input type="number" class="form-control" min="1" max="10" v-model.number="qty" />
@@ -63,17 +67,36 @@
               </button>
             </div>
           </div>
-          <div class="mt-3">
-            <button type="button" class="btn btn-secondary" @click="$router.back">返回</button>
-          </div>
         </div>
         <!-- col-sm-6 end -->
+
+        <div class="col-sm-12 mt-5">
+          <div class="desc_section">
+            <h4 class="text-medium text-center f-size-xs">商品介紹</h4>
+            <hr>
+            <!-- <div class="row">
+              <div class="col-sm-6 text-center mb-3">
+                <img class="img-fluid" :src="product.imagesUrl" alt="產品圖片" />
+              </div>
+            </div> -->
+            <p>{{ product.content }}</p>
+          </div>
+
+          <div class="mt-5 my-5 text-center">
+            <button type="button" class="btn btn-secondary" @click="$router.back">回列表</button>
+          </div>
+
+        </div>
       </div>
     </template>
   </div>
+  <FooterView></FooterView>
+
 </template>
 
 <script>
+import FooterView from '@/components/FooterView.vue';
+
 export default {
   data() {
     return {
@@ -125,6 +148,9 @@ export default {
           console.dir(err);
         });
     },
+  },
+  components: {
+    FooterView,
   },
   mounted() {
     this.getProduct();
